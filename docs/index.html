@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>S+ 后台主题UI框架 开发文档</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+        }
+        
+        .documentation .jumbotron .row {
+            padding-top: 60px;
+        }
+        
+        .anchor {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body class="documentation">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">菜单切换</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Splus开发文档</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>S+ 后台主题UI框架</h2>
+                    <p>非常感谢您选择和使用S+，在使用S+之前请注意以下事项：</p>
+                    <p>1.为了保证所有功能都可正常使用，请在服务器环境（本地测试可使用localhost）下运行；
+                        <br> 2.请认真阅读本文档后再开始使用S+；
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/preview.png" alt="screen" class="img-responsive" />
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <h2>
+            内容导航
+        </h2>
+
+                <ul>
+
+                    <li><a href="#documentation">关于文档</a>
+                    </li>
+                    <li><a href="#folder_structure">文件夹结构</a>
+                    </li>
+                    <li><a href="#layout_structure">布局结构</a>
+                    </li>
+                    <li><a href="#options">设置选项</a>
+                        <ul>
+                            <li><a href="#fixed_sidebar">固定左侧导航</a>
+                            </li>
+                            <li><a href="#fixed_navbar">固定顶部导航</a>
+                            </li>
+                            <li><a href="#fixed_footer">固定页脚</a>
+                            </li>
+                            <li><a href="#rtl_support">RTL支持</a>
+                            </li>
+                            <li><a href="#layout_2">布局2</a>
+                            </li>
+                            <li><a href="#skins">模板皮肤</a>
+                            </li>
+                            <li><a href="#themeconfig">主题设置</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#links">相关参考文档</a></li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <a name="documentation" class="anchor"></a>
+                <h3>关于本主题</h3>
+
+                <p>S+是一个完全响应式，基于Bootstrap3.4.0最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.1)，当然，也集成了很多功能强大，用途广泛的jQuery插件，她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA等等，当然，您也可以对她进行深度定制，以做出更强系统。</p>
+
+
+
+
+                <div class="row">
+                    <a name="folder_structure" class="anchor"></a>
+                    <div class="col-md-6">
+                        <h3>结构</h3>
+                        <h4>文件夹和文件</h4>
+
+                        <div><pre class="prettyprint linenums">
+<code>Splus/
+    ├── <strong>css/</strong>
+    ├── <strong>docs/</strong>
+    ├── <strong>font-awesome/</strong>
+    ├── <strong>fonts/</strong>
+    ├── <strong>img/</strong>
+    ├── <strong>js/</strong>
+    ├── <strong>plugins/</strong>
+    ├── <strong>tools/</strong>
+    ├── 404.html
+    ├── 500.html
+    ├── badges_labels.html
+    ├── basic_gallery.html
+    ├── buttons.html
+    ├── calendar.html
+    ├── carousel.html
+    ├── chat_view.html
+    ├── code_editor.html
+    ├── contacts.html
+    ├── css_animation.html
+    ├── draggable_panels.html
+    ├── empy_page.html
+    ├── faq.html
+    ├── file_manager.html
+    ├── form_advanced.html
+    ├── form_avatar.html
+    ├── form_basic.html
+    ├── form_builder.html
+    ├── form_editors.html
+    ├── form_file_upload.html
+    ├── form_markdown.html
+    ├── form_simditor.html
+    ├── form_validate.html
+    ├── form_webuploader.html
+    ├── form_wizard.html
+    ├── forum_main.html
+    ├── graph_echarts.html
+    ├── graph_flot.html
+    ├── graph_morris.html
+    ├── graph_peity.html
+    ├── graph_rickshaw.html
+    ├── graph_sparkline.html
+    ├── grid_options.html
+    ├── iconfont.html
+    ├── icons.html
+    ├── index.html
+    ├── index_1.html
+    ├── index_2.html
+    ├── index_3.html
+    ├── index_4.html
+    ├── invoice.html
+    ├── invoice_print.html
+    ├── layer.html
+    ├── layerdate.html
+    ├── layouts.html
+    ├── lockscreen.html
+    ├── login.html
+    ├── mail_compose.html
+    ├── mail_detail.html
+    ├── mailbox.html
+    ├── modal_window.html
+    ├── nestable_list.html
+    ├── notifications.html
+    ├── pin_board.html
+    ├── profile.html
+    ├── project_detail.html
+    ├── projects.html
+    ├── register.html
+    ├── search_result.html
+    ├── skin-config.html
+    ├── table_basic.html
+    ├── table_data_tables.html
+    ├── table_jqgrid.html
+    ├── tabs_panels.html
+    ├── timeline.html
+    ├── timeline_v2.html
+    ├── toastr_notifications.html
+    ├── tree_view.html
+    ├── tree_view_v2.html
+    ├── typography.html
+    ├── validation.html
+    ├── webim.html
+    ├── widgets.html
+</code></pre>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h3>主要的HTML元素</h3>
+
+                        <p>主题的正常结构元素包含以下几个方面：</p>
+                        <ol>
+                            <li><code>#wrapper</code> body元素之后的主容器</li>
+                            <li><code>nav .navbar-static-side</code> 左侧导航<b>菜单</b>.</li>
+                            <li><code>#page-wrapper</code> 页面内容的主容器</li>
+                            <li><code>nav .navbar-static-top</code> 顶部菜单</li>
+                            <li><code>.page-heading</code> 页面标题及包屑式导航容器</li>
+                            <li><code>.wrapper-content</code> html元素主容器</li>
+                            <li><code>.footer</code> 页脚主容器</li>
+                        </ol>
+
+                        <a target="_blank" href="img/page.png"><img class="img-responsive" src="img/page.png" alt="page structure">
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <a name="layout_structure" class="anchor"></a>
+                    <div class="col-lg-12">
+                        <h3>布局结构</h3>
+
+                        <p>页面 <code>&lt;head /&gt;</code> 中，包含meta和css等</p>
+                        <pre class="prettyprint linenums">
+&lt;!DOCTYPE html>
+&lt;head>
+
+    &lt;!-- Meta --&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;S+ 后台主题UI框架 - 页面&lt;/title&gt;
+
+    &lt;!-- CSS文件 --&gt;
+    &lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;
+    &lt;link href="font-awesome/css/font-awesome.css" rel="stylesheet"&gt;
+    &lt;link href="css/animate.css" rel="stylesheet"&gt;
+    &lt;link href="css/style.css" rel="stylesheet"&gt;
+
+&lt;/head&gt;</pre>
+
+                        <hr>
+                        <h3>左右式布局（经典布局）</h3>
+
+                        <p>二级菜单示例</p>
+                        <pre class="prettyprint linenums">
+&lt;ul class="nav" id="side-menu"&gt;
+    &lt;li class="nav-header"&gt;
+        &lt;div class="dropdown profile-element"&gt; &lt;span&gt;
+            &lt;img alt="image" class="img-circle" src="img/profile_small.jpg"&gt;
+             &lt;/span&gt;
+            &lt;a data-toggle="dropdown" class="dropdown-toggle" href="#"&gt;
+            &lt;span class="clear"&gt; &lt;span class="block m-t-xs"&gt; &lt;strong class="font-bold"&gt;Beau-zihan&lt;/strong&gt;
+             &lt;/span&gt; &lt;span class="text-muted text-xs block"&gt;超级管理员&lt;b class="caret"&gt;&lt;/b&gt;&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;
+            &lt;ul class="dropdown-menu animated fadeInRight m-t-xs"&gt;
+                &lt;li&gt;&lt;a href="profile.html"&gt;个人资料&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="contacts.html"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="mailbox.html"&gt;信箱&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="login.html"&gt;安全退出&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="logo-element"&gt;
+            IN+
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;!-- 其他项 --&gt;
+    &lt;/li&gt;
+
+&lt;/ul&gt; </pre>
+                        <hr>
+                        <h3>上下式布局（可选布局）</h3>
+
+                        <p>二级菜单示例</p>
+                        <pre class="prettyprint linenums">
+&lt;nav class="navbar navbar-static-top" role="navigation"&gt;
+    &lt;div class="navbar-header"&gt;
+        &lt;button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"&gt;
+            &lt;i class="fa fa-reorder"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;a href="#" class="navbar-brand"&gt;Splus&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="navbar-collapse collapse" id="navbar"&gt;
+        &lt;ul class="nav navbar-nav"&gt;
+            &lt;li class="active"&gt;
+                &lt;a aria-expanded="false" role="button" href="layouts.html"&gt; 返回布局页面&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="dropdown"&gt;
+                &lt;a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"&gt; 菜单 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;ul role="menu" class="dropdown-menu"&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class="dropdown"&gt;
+                &lt;a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"&gt; 菜单 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;ul role="menu" class="dropdown-menu"&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;M菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class="dropdown"&gt;
+                &lt;a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"&gt; 菜单 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;ul role="menu" class="dropdown-menu"&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class="dropdown"&gt;
+                &lt;a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"&gt; 菜单 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;ul role="menu" class="dropdown-menu"&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;菜单列表&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+        &lt;ul class="nav navbar-top-links navbar-right"&gt;
+            &lt;li&gt;
+                &lt;a href="login.html"&gt;
+                    &lt;i class="fa fa-sign-out"&gt;&lt;/i&gt; 退出
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+                </pre>
+                        <hr>
+                        <h3>内容</h3>
+
+                        <p>主内容包括页面顶部和页面内容</p>
+                        <pre class="prettyprint linenums">
+&lt;div class="row wrapper border-bottom white-bg page-heading"&gt;
+    &lt;div class="col-lg-9"&gt;
+        &lt;h2&gt;这里是标题&lt;/h2&gt;
+        &lt;ol class="breadcrumb"&gt;
+            &lt;li&gt;
+                &lt;a href="index.html"&gt;这是&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="active"&gt;
+                &lt;strong&gt;包屑式导航&lt;/strong&gt;
+            &lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/div&gt;
+    &lt;div class="col-lg-3"&gt;
+        &lt;div class="title-action"&gt;
+            &lt;a href="" class="btn btn-primary"&gt;活动区域&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-lg-12"&gt;
+        &lt;div class="wrapper wrapper-content"&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+
+                        <hr>
+
+
+                        <a name="options" class="anchor"></a>
+                        <h3>设置</h3>
+
+                        <p>S+为您提供了以下几种布局方式，可以灵活引用：
+
+                            <ul>
+                                <li><a href="#fixed_sidebar">固定左侧导航</a>
+                                </li>
+                                <li><a href="#fixed_navbar">固定顶部导航</a>
+                                </li>
+                                <li><a href="#fixed_footer">固定页脚</a>
+                                </li>
+                                <li><a href="#rtl_support">RTL支持</a>
+                                </li>
+                                <li><a href="#layout_2">布局2</a>
+                                </li>
+                                <li><a href="#skins">模板皮肤</a>
+                                </li>
+                            </ul>
+
+                        </p>
+
+
+                        <a name="fixed_sidebar" class="anchor"></a>
+                        <h4>固定左侧导航</h4>
+
+                        <p>
+                            固定左侧导航是指当屏幕滚动时左侧菜单固定在左侧显示
+                        </p>
+                        <p>
+                            实现左侧导航固定我们需要在body元素上添加<code>.fixed-sidebar</code>
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+    &lt;body class="fixed-sidebar"&gt;
+
+</pre>
+
+                        <p>
+                            接下来我们需要在侧边上添加slimScroll（滚动插件），在 js/splus.js 文件中找到 //Fixed Sidebar部分如下，并取消注释：
+
+                        </p>
+
+
+                        <pre class="prettyprint linenums">
+// Fixed Sidebar
+// unComment this only whe you have a fixed-sidebar
+$(window).bind("load", function() {
+    if($("body").hasClass('fixed-sidebar')) {
+        $('.sidebar-collapse').slimScroll({
+            height: '100%',
+            railOpacity: 0.9,
+        });
+    }
+})
+</pre>
+                        <p>
+                            当然，你需要首先引入必要的文件：
+
+                            <pre class="prettyprint linenums">
+&lt;!-- SlimScroll --&gt;
+&lt;script src="js/plugins/slimscroll/jquery.slimscroll.min.js"&gt;&lt;/script&gt;
+    </pre>
+
+                        </p>
+
+                        <a name="fixed_navbar" class="anchor"></a>
+                        <h4>固定顶部导航</h4>
+                        <p>
+                            固定顶部导航是指当屏幕滚动时顶部导航固定在顶部显示
+                        </p>
+                        <p>
+                            实现顶部导航固定我们需要在body元素上添加<code>.fixed-nav</code>
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+    &lt;body class="fixed-nav"&gt;
+
+</pre>
+
+                        <p>
+                            接下来我们需要修改.navbar-static-top为<code>.navbar-fixed-top</code>
+                        </p>
+
+
+                        <pre class="prettyprint linenums">
+
+&lt;nav class="navbar navbar-fixed-top" role="navigation"&gt;
+
+</pre>
+
+
+                        <a name="fixed_footer" class="anchor"></a>
+                        <h4>固定页脚</h4>
+
+                        <p>
+                            固定底部是指当屏幕滚动时左侧菜单固定在左侧显示
+
+                        </p>
+                        <p>
+                            实现页脚固定我们需要在footer元素上添加<code>.fixed</code>
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+    &lt;div class="footer fixed"&gt;
+
+</pre>
+
+                        <a name="rtl_support" class="anchor"></a>
+                        <h4>RTL支持</h4>
+
+                        <p>
+                            RTL（从右向左阅读）
+
+                        </p>
+                        <p>
+                            添加RTL支持需要我们在body元素上添加<code>.rtls</code>
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+    &lt;body class="rtls"&gt;
+
+</pre>
+
+                        <p>
+                            接下来我们需要在head中引入相关的支持文件
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;
+    &lt;link href="css/plugins/bootstrap-rtl/bootstrap-rtl.css" rel="stylesheet"&gt;
+
+</pre>
+
+
+
+                        <a name="layout_2" class="anchor"></a>
+                        <h4>布局2</h4>
+
+                        <p>
+                            布局2是上下布局，内容居中的布局形式
+
+                        </p>
+                        <p>
+                            布局2的示例我们可以从查看index_4.html
+                        </p>
+
+                        <p>
+                            使用布局2后的效果如下图：
+
+                        </p>
+
+                        <img class="img-responsive" src="img/index_4.png" alt="">
+
+                        <a name="skins" class="anchor"></a>
+                        <h4>模板皮肤</h4>
+
+                        <p>除默认皮肤外，S+还包含了3套皮肤可供选择</p>
+
+                        <p><strong>可以通过为元素添加不同的class实现换肤</strong>
+                        </p>
+
+                        <p>如：我们可以在body元素上添加<code>.skin-1</code></p>
+
+                        <p>在CSS文件style.css中，您可以修改这些皮肤的颜色和样式</p>
+                        <ul>
+                            <li><code>.skin-1</code> - 蓝色主题</li>
+                            <li><code>.skin-2</code> - 灰色主题</li>
+                            <li><code>.skin-3</code> - 黄色/紫色主题</li>
+                            <li>默认皮肤不需要添加任何class</li>
+                        </ul>
+
+                        <a name="themeconfig" class="anchor"></a>
+                        <h4>主题设置</h4>
+
+                        <p>主题设置是一个实时预览主题改变效果的设置框，它放在主题的右上角的位置（点击齿轮图标可以展开和收起）</p>
+                
+                        <p>如果您在本地测试时看不到主题设置框，建议您放到localhost下面</p>
+
+                        <p>我们没有直接在页面中添加主题设置的html代码，而是通过在splus.js文件中添加了对应的函数来实现，您可以通过查找“// Append config box / Only for demo purpose”来查看对应代码</p>
+
+                        <p>如果您需要移除主题设置框，只需要注释或移除对应的代码即可</p>
+                        
+                
+                        <a name="links" class="anchor"></a>
+                        <h3>相关参考文档</h3>
+                        <p>S+基于Bootstrap，所以您可以参考以下文档：
+                        </p>
+                        <ol>
+                            <li>Bootstrap中文文档：http://v3.bootcss.com/getting-started/</li>
+                            <li>Bootstrap官方文档：http://getbootstrap.com/getting-started/</li>
+                        </ol>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; Splus</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/prettify.js"></script>
+
+    <script>
+        $(function () {
+            window.prettyPrint && prettyPrint();
+        })
+    </script>
+
+</body>
+
+</html>
